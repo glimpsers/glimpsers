@@ -1,0 +1,1 @@
+const reactENV = (str) => `REACT_APP_${str.replace(/[^a-zA-Z ]/g, '')}`.split(' ').join('_').toUpperCase();
