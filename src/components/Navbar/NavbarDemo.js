@@ -13,7 +13,7 @@ export class NavbarDemo extends Component {
         <NavContainer>
           <Logo>
             <a href="/">
-              <img src={LogoPng} />
+              <img src={LogoPng} alt="logo" title="logo" />
             </a>
           </Logo>
           <Navigation>
