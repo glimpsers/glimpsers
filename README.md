@@ -1,70 +1,184 @@
-# Getting Started with Create React App
+# project - glimpsers
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# Project - prep #1
+## Names :
+- Mohammad Abu Mattar. 
+- Mohammad Jaradat. 
+- Mohmammad Altamimi. 
+- Rula Qasem. 
+- Ameen Betawi. 
+- abdullah Abu Khurma.
 
-### `npm start`
+<p>&nbsp;</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+<p>&nbsp;</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Team name: 
+- Glimpsers.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project's name:
+- Glimpse!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Idea :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Social media platform.
+- A new platform for communication with other.
 
-### `npm run eject`
+<p>&nbsp;</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>&nbsp;</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Conflict Plan
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### What is the group process to resolve conflict, when it arises?
+<p>&nbsp;</p>
 
-## Learn More
+###  How will you raise concerns to members who are not adequately contributing? 
+<p>&nbsp;</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### How and when will you escalate the conflict if your resolution attempts are unsuccessful?
+<p>&nbsp;</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+- By communication.
+- We will directly tell them.
+- When no improvement is made with regards to their behavior
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p>&nbsp;</p>
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p>&nbsp;</p>
 
-### Making a Progressive Web App
+# Communication Plan
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### How will you communicate after hours and on the weekend?
+<p>&nbsp;</p>
 
-### Advanced Configuration
+###  What is your strategy for ensuring everyone’s voice is heard? 
+<p>&nbsp;</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
+<p>&nbsp;</p>
 
-### Deployment
+- using Slack and zoom and remo.
+- we Will use democracy as an example; so voting and opinion sharing is a must.
+- So everyone agreed to mutual respect, and that will guarantee a safe space for everyone.
+<p>&nbsp;</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+<p>&nbsp;</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>&nbsp;</p>
+
+# Work Plan
+
+### How you will identify tasks, assign tasks, know when they are complete, and manage work in general?
+<p>&nbsp;</p>
+
+
+### What project management tool will be used?
+
+<p>&nbsp;</p>
+
+
+- by planning and dividing roles and work hours.
+- Scheduling and pre-planning.
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+# Git process: 
+
+### What components of your project will live on GitHub? 
+<p>&nbsp;</p>
+
+### How will you share the repository with your teammates?<p>&nbsp;</p>
+
+ ### What is your Git flow? Will you be using a PR review workflow? <p>&nbsp;</p>
+
+
+### If so, consider: How many people must review a PR? Who merges PRs? How often will you merge? How will you communicate that it’s time to merge?<p>&nbsp;</p>
+
+
+- creating, pushing, pulling, merging- GitHub pages.
+- using shared organization profile.
+- we are using the terminal to ACP then we will pull the requests and merge to the main after review; then will pull all changes to local machine.
+- no, just main admin review.
+
+<p>&nbsp;</p>
+
+
+
+
+
+### What components of your project will live on GitHub?
+-  The source code except the environmental variables.
+<p>&nbsp;</p>
+
+
+### How will you share the repository with your teammates?
+- through an organization in GitHub.
+<p>&nbsp;</p>
+
+
+### What is your Git flow?
+<p>&nbsp;</p>
+
+
+
+![workflow](./assets/gitflow.png)
+
+<p>&nbsp;</p>
+
+
+
+### Will you be using a PR review workflow? If so, consider:
+## How many people must review a PR? 
+- Leader & team member who built the code.
+<p>&nbsp;</p>
+
+### Who merges PRs?
+- Leader.
+<p>&nbsp;</p>
+
+### How often will you merge?
+- Two times a day mainly.
+<p>&nbsp;</p>
+
+### How will you communicate that it’s time to merge?
+- Using group slack, zoom, and remo.
+<p>&nbsp;</p>
+
+
+
+
+
+# Project - prep #2
+
+1. Summary of idea.
+
+2. What problem or pain point does it solve? a. Keep it high level without going into too much detail. 
+
+3. Minimum Viable Product (MVP) definition.
+      - What is the minimum required for you to present on your demo day?
+
+
+
+
+
+     1. a. Social media.<br/>
+        b. Movie platform.
+
+      2. a. A new open-source free of ads application. <br/>
+         b. A new platform for viewing movies and videos.
+
+   3. a. We are developing a fully functional networking and communication platform. <br/>
+      b. A fully functional movie-viewing platform.
