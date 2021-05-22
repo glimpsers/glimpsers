@@ -1,6 +1,7 @@
 //package
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { withAuth0 } from '@auth0/auth0-react';
 
 //utilities
 import MeatDecorator from './utilities/MeatDecorator/MeatDecorator';
@@ -18,6 +19,7 @@ import ErrorPage from './views/ErrorPage/ErrorPage';
 
 export class App extends Component {
   render() {
+    const { isAuthenticated } = this.props.auth0;
     return (
       <>
         <Router>
@@ -25,12 +27,9 @@ export class App extends Component {
             title={'glimpsers'}
             description={'glimpsers description'}
           />
-
           <Navbar />
-
           <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/" component={isAuthenticated ? HomePage : LandingPage} />
             <Route exact path="/interest" component={InterestPage} />
             <Route exact path="/profile" component={ProfilePage} />
             <Route path="/*" component={ErrorPage} />
@@ -40,4 +39,4 @@ export class App extends Component {
     );
   }
 }
-export default App;
+export default withAuth0(App);

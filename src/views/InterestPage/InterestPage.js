@@ -1,6 +1,6 @@
 //package
 import React, { Component } from 'react';
-
+import { withAuth0 } from '@auth0/auth0-react';
 //utilities
 import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 
@@ -25,4 +25,4 @@ export class InterestPage extends Component {
   }
 }
 
-export default InterestPage;
+export default withAuth0(InterestPage);

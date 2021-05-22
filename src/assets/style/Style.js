@@ -124,8 +124,8 @@ a {
 
   &:not(.icon-button) {
     padding: 0.25em 0.75em;
-    min-width: 10ch;
-    min-height: 44px;
+    min-width: 7.89rem;
+    min-height: 1rem;
   }
 
   text-align: center;
@@ -143,7 +143,7 @@ a {
   }
 
   margin-right: 75px;
-  margin-top: 7px;
+  margin-top: 0.7rem;
 }
 
 .button__icon {

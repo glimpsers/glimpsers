@@ -4,7 +4,7 @@ import DropdownItem from './DropdownItem';
 
 import Feeds from '../../assets/icons/feeds.svg';
 import Interests from '../../assets/icons/interests.svg';
-import Logout from '../../assets/icons/logout.svg';
+
 
 
 export class DropdownMenu extends Component {
@@ -34,7 +34,6 @@ export class DropdownMenu extends Component {
 
           <DropdownItem
             text={'Log out'}
-            leftIcon={Logout}
           />
 
         </div>

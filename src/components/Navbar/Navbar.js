@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-
+import { withAuth0 } from '@auth0/auth0-react';
 import NavItem from './NavItem';
-
 import CaretIcon from '../../assets/icons/caret.svg';
-import Login from '../../assets/icons/login.svg';
-
 import LogoPng from '../../assets/img/glimpsers.png';
 
 export class Navbar extends Component {
-
-
   render() {
+    const { isAuthenticated } = this.props.auth0;
     return (
       <>
         <nav className="navbar">
@@ -23,17 +19,21 @@ export class Navbar extends Component {
               alt="glimpsers logo"
               title="glimpsers" />
           </a>
-
           <ul className="navbar-nav">
-            <NavItem
-              icon={Login}
-              link={'#'}
-              text='login'
-            />
-            <NavItem
-              icon={CaretIcon}
-              drop={true}
-            />
+            {isAuthenticated ?
+              (
+                <>
+                  <NavItem
+                    icon={CaretIcon}
+                    drop={true}
+                  />
+                </>
+              ) : (
+                <>
+                  <NavItem text={'log in'} />
+                </>
+              )
+            }
           </ul>
         </nav>
       </>
@@ -41,4 +41,4 @@ export class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withAuth0(Navbar);
