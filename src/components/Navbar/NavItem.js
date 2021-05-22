@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import DropdownMenu from './DropdownMenu';
+import LoginButton from '../../utilities/LoginButton/LoginButton';
 
 export class NavItem extends Component {
 
@@ -14,40 +15,37 @@ export class NavItem extends Component {
   setOpen = (open) => this.setState({ open: open, });
 
   render() {
+
+
     return (
+
       <>
         <li className="nav-item">
-          <a
-
-            className={this.props.text ? ('loginbtn') : ('icon-button')}
-            href={this.props.link}
-            onClick={() => this.setOpen(!this.state.open)}
-          >
-            {this.props.text ?
-              (<>
-                <img
-                  class="button__icon"
-                  src={this.props.icon}
-                  alt="..." />
-                {this.props.text}
-              </>
-              ) : (
-                <>
-                  <img src={this.props.icon} alt="..." />
-                </>
-              )
-            }
-
-          </a>
-          {this.props.drop &&
-            <>
-              {this.state.open &&
-                <>
-                  <DropdownMenu />
-                </>
-              }
+          {this.props.text ?
+            (<>
+              <LoginButton />
             </>
-          }
+            ) : (
+              <>
+                <a
+                  className='icon-button'
+                  href={this.props.link}
+                  onClick={() => this.setOpen(!this.state.open)}
+                >
+                  <img src={this.props.icon} alt="..." />
+                </a>
+                {this.props.drop &&
+                  <>
+                    {this.state.open &&
+                      <>
+                        <DropdownMenu />
+                      </>
+                    }
+                  </>
+                }
+              </>
+            )}
+
         </li>
       </>
     );

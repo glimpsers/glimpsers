@@ -3,7 +3,7 @@
     "Mustache": true,
     "$": true
   },
-  "extends": "eslint:recommended",
+  "extends": "react-app",
   "parserOptions": {
     "ecmaVersion": 6
   },
