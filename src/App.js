@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MeatDecorator from './utilities/MeatDecorator/MeatDecorator';
 
 //components
-import NavbarDemo from './components/Navbar/NavbarDemo';
+// import NavbarDemo from './components/Navbar/NavbarDemo';
+import Navbar from './components/Navbar/Navbar';
 
 //views
 import LandingPage from './views/LandingPage/LandingPage';
@@ -25,7 +26,7 @@ export class App extends Component {
             description={'glimpsers description'}
           />
 
-          <NavbarDemo />
+          <Navbar />
 
           <Switch>
             <Route exact path="/" component={LandingPage} />
