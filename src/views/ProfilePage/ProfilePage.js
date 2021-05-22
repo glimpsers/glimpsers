@@ -1,10 +1,12 @@
 //package
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+
 //utilities
 import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 
 //components
+import Page404 from '../Page404/Page404';
 
 //style
 import { Title } from '../../assets/style/Style';
@@ -45,11 +47,11 @@ export class ProfilePage extends Component {
                 </>
               ) : (
                 <>
+                  <Page404 />
                 </>
               )}
-          </>)}
-
-
+          </>
+        )}
       </>
     );
   }

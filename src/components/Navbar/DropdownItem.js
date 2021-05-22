@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import LogoutButton from '../../utilities/LogoutButton/LogoutButton';
 
 export class DropdownItem extends Component {
@@ -6,18 +8,20 @@ export class DropdownItem extends Component {
     return (
       <>
         {this.props.text === 'Log out' ?
-          (<>
-            <LogoutButton />
-          </>
+          (
+            <>
+              <LogoutButton />
+            </>
           ) : (
             <>
-              <a
+              <Link
                 className="menu-item"
-                href={this.props.link}>
+                to={this.props.link}>
                 {this.props.leftIcon &&
                   <>
                     <span className="icon-button">
                       <img
+                        className={this.props.link === '/profile' ? ('profilePic') : ('')}
                         src={this.props.leftIcon}
                         alt="..." />
                     </span>
@@ -25,9 +29,9 @@ export class DropdownItem extends Component {
                 }
 
                 {this.props.text}
-              </a>
-            </>)}
-
+              </Link>
+            </>
+          )}
       </>
     );
   }
