@@ -38,8 +38,6 @@ export class SetupAccount extends Component {
   setupAccount = async (e) => {
     e.preventDefault();
 
-    // const { user } = this.props.auth0;
-
     const body = {
       email: this.state.userEmail,
       name: this.state.userName,
