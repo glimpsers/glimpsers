@@ -2,7 +2,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-
 class IntrestModal extends React.Component {
   constructor() {
     super();
@@ -37,8 +36,5 @@ class IntrestModal extends React.Component {
     );
   }
 }
-
-
-
 
 export default IntrestModal;
