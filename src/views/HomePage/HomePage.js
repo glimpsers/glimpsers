@@ -1,6 +1,8 @@
 //package
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+
 //utilities
 import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 
@@ -10,11 +12,15 @@ import Page404 from '../Page404/Page404';
 //style
 import { Title } from '../../assets/style/Style';
 
+//view
+import SetupAccount from '../SetupAccount/SetupAccount';
+
 export class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
+      setupAccount: false,
     };
   }
 
@@ -22,7 +28,19 @@ export class HomePage extends Component {
     this.setState({
       loading: false,
     });
+
+    this.checkUser();
   }
+
+  checkUser = async () => {
+    const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/data`);
+    console.log(user.data);
+    if (user.data === 'not found') {
+      this.setState({ setupAccount: true, });
+      console.log('newUser');
+    }
+  }
+
   render() {
     const { user } = this.props.auth0;
     return (
@@ -42,6 +60,15 @@ export class HomePage extends Component {
                   />
 
                   <Title>Home Page</Title>
+                  {this.state.setupAccount ? (
+                    <>
+                      <SetupAccount />
+                    </>
+                  ) : (
+                    <>
+
+                    </>
+                  )}
                 </>
               ) : (
                 <>

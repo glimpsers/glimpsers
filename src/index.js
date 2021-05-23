@@ -1,8 +1,17 @@
+//package
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { GlobalStyle } from './assets/style/Style';
 import { Auth0Provider } from '@auth0/auth0-react';
+
+//utilities
+
+//components
+
+//style
+import { GlobalStyle } from './assets/style/Style';
+
+//root
+import App from './App';
 
 ReactDOM.render(
 

@@ -1,5 +1,12 @@
+//package
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+
+//utilities
+
+//components
+
+//style
 
 export default class MeatDecorator extends Component {
   render() {

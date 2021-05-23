@@ -1,6 +1,14 @@
+//package
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+
+//utilities
+
+//components
+
+//style
 import Logout from '../../assets/icons/logout.svg';
+
 const LogoutButton = () => {
   const { logout } = useAuth0();
 

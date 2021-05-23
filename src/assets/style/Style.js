@@ -1,5 +1,13 @@
+//package
 import styled, { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
+
+//utilities
+
+//components
+
+//style
+import BG from '../img/bg.svg';
 
 export const GlobalStyle = createGlobalStyle`
 :root{
@@ -125,7 +133,7 @@ a {
   &:not(.icon-button) {
     padding: 0.25em 0.75em;
     min-width: 7.89rem;
-    min-height: 1rem;
+    /* min-height: 1rem; */
   }
 
   text-align: center;
@@ -248,6 +256,56 @@ a {
   border-radius: 50%;
   min-width: 150%;
 }
+
+.landingPage{
+  background:linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)
+    ), url(${BG});
+  width: 100vw;
+  height: calc(100vh - var(--nav-size));
+  background-size:cover;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  display: grid;
+  justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.landingPage .container {
+  height: calc(100vh - 60%);
+  width: calc(100vw - 60%);
+  background-color: #F9F9F9;
+
+  @media all and (max-width: 700px){
+    p{
+      text-align: center;
+    }
+    height: calc(100vh - 50%);
+    width: calc(100vw - 2%);
+  }
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  @media all and (max-width: 700px){
+    grid-template-columns: 1fr;
+  }
+
+  .loginbtn{
+    margin: 0;
+    width: 15rem;
+    height: 3rem;
+    margin-top: 1.5rem;
+  }
+}
+
 
 `;
 
