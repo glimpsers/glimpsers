@@ -7,6 +7,7 @@ import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 
 //components
 import Page404 from '../Page404/Page404';
+import IntrestModal from './modal';
 
 //style
 import { Title } from '../../assets/style/Style';
@@ -43,7 +44,14 @@ export class ProfilePage extends Component {
                     description={'glimpsers description Profile Page'}
                   />
 
-                  <Title>Profile Page</Title>
+                  <Title>{user.name}</Title>
+                  <div className="profileDiv">
+                    <img src={user.picture} alt={user.name} className="profileImg" />
+                    <h2>Email: {user.email}</h2>
+                  </div>
+                  <div className="profileDiv">
+                    < IntrestModal />
+                  </div>
                 </>
               ) : (
                 <>

@@ -306,6 +306,23 @@ a {
   }
 }
 
+.profileImg{
+  
+  width: 300px;
+ border-radius: 50%;
+
+}
+
+.profileDiv{
+  
+  text-align-last: center;
+
+}
+#intrestbtn{
+  
+  margin-right: 0px;
+
+}
 
 .Modal {
   position: absolute;
