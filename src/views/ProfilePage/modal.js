@@ -25,7 +25,7 @@ class IntrestModal extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleOpenModal} className="loginbtn" id="intrestbtn">Interests</button>
+        <button onClick={this.handleOpenModal} className="loginbtn intrestbtn">Interests</button>
         <ReactModal
           isOpen={this.state.showModal}
           contentLabel="Minimal Modal Example"

@@ -59,6 +59,8 @@ a {
   align-items: center;
   position: sticky;
   box-shadow: rgb(0 0 0 / 75%) 0px 14px 14px -14px;
+  top:0;
+  z-index: 99;
 }
 
 .navbar .logoLink {
@@ -255,6 +257,7 @@ a {
 .profilePic{
   border-radius: 50%;
   min-width: 150%;
+  
 }
 
 .landingPage{
@@ -308,20 +311,39 @@ a {
 
 .profileImg{
   
-  width: 300px;
+  margin-top: 56px;
+    width: 260px;
+    height: 260px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+ 
  border-radius: 50%;
 
 }
 
 .profileDiv{
+ margin: 0 auto;
+ display:grid;
+ place-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  padding-bottom: 56px;
+    background: radial-gradient(#447FAD, #000000ad);
   
-  text-align-last: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 56px;
+    margin-bottom: 56px;
+
+   
 
 }
-#intrestbtn{
+.intrestbtn{
   
   margin-right: 0px;
-
+  
+:hover{
+  background-color: #2D5573;
+}
 }
 
 .Modal {
@@ -405,6 +427,15 @@ a {
   }
 }
 
+.profileEmail{
+  text-align: center;
+}
+.profileName{
+  color: #f9f9f9;
+  
+  margin-bottom: 0;
+
+}
 `;
 
 export const Title = styled.h1`
