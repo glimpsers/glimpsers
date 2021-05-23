@@ -1,7 +1,13 @@
+//package
 import React, { Component } from 'react';
 
-import DropdownMenu from './DropdownMenu';
+//utilities
 import LoginButton from '../../utilities/LoginButton/LoginButton';
+
+//components
+import DropdownMenu from './DropdownMenu';
+
+//style
 
 export class NavItem extends Component {
 
@@ -15,10 +21,7 @@ export class NavItem extends Component {
   setOpen = (open) => this.setState({ open: open, });
 
   render() {
-
-
     return (
-
       <>
         <li className="nav-item">
           {this.props.text ?
@@ -45,7 +48,6 @@ export class NavItem extends Component {
                 }
               </>
             )}
-
         </li>
       </>
     );
@@ -53,4 +55,3 @@ export class NavItem extends Component {
 }
 
 export default NavItem;
-

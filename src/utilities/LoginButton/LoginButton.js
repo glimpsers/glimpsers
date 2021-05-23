@@ -1,7 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+//package
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+
+//utilities
+
+//components
+
+//style
 import Login from '../../assets/icons/login.svg';
+
 const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 

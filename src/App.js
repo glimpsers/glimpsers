@@ -7,7 +7,6 @@ import { withAuth0 } from '@auth0/auth0-react';
 import MeatDecorator from './utilities/MeatDecorator/MeatDecorator';
 
 //components
-// import NavbarDemo from './components/Navbar/NavbarDemo';
 import Navbar from './components/Navbar/Navbar';
 import IsLoadingAndError from './utilities/IsLoadingAndError/IsLoadingAndError';
 

@@ -1,3 +1,4 @@
+//package
 import React from 'react';
 
 function Page404() {

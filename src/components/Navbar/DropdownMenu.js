@@ -1,13 +1,15 @@
+//package
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 
+//utilities
+
+//components
 import DropdownItem from './DropdownItem';
 
+//style
 import Feeds from '../../assets/icons/feeds.svg';
 import Interests from '../../assets/icons/interests.svg';
-// import { User } from '@auth0/auth0-spa-js';
-
-
 
 export class DropdownMenu extends Component {
 
