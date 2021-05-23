@@ -307,9 +307,90 @@ a {
 }
 
 
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  background: rgba(255, 255, 255, 0.88);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  border: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}
+
+.modalForm{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.newUesrAccimg{
+  min-width: 80%;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #242526;
+}
+
+.modalForm form{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.modalForm form label{
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.modalForm form input{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  border: 0;
+}
+
+.btnNewAcc{
+  margin-top: 2rem;
+  background-color: #3e68ff;
+  padding: 0.5rem;
+  width: 15rem;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #F9F9F9;
+
+  :hover{
+    background-color: #2c56ea;
+  }
+}
+
 `;
 
 export const Title = styled.h1`
-  font-size: 5rem;
+  font-size: 2.5rem;
   text-align: center;
 `;
