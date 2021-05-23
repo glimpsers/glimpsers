@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 //utilities
 import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
@@ -60,6 +61,7 @@ export class HomePage extends Component {
                   />
 
                   <Title>Home Page</Title>
+                  <Link to="/aboutus">About Us</Link>
                   {this.state.setupAccount ? (
                     <>
                       <SetupAccount />

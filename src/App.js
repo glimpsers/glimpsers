@@ -16,6 +16,7 @@ import HomePage from './views/HomePage/HomePage';
 import InterestPage from './views/InterestPage/InterestPage';
 import ProfilePage from './views/ProfilePage/ProfilePage';
 import ErrorPage from './views/ErrorPage/ErrorPage';
+import AboutUsPage from './views/AboutUsPage/AboutUsPage';
 
 export class App extends Component {
   render() {
@@ -34,6 +35,7 @@ export class App extends Component {
               <Route exact path="/" component={isAuthenticated ? HomePage : LandingPage} />
               <Route exact path="/interest" component={InterestPage} />
               <Route exact path="/profile" component={ProfilePage} />
+              <Route exact path="/aboutus" component={AboutUsPage} />
               <Route path="/*" component={ErrorPage} />
             </Switch>
           </IsLoadingAndError>
