@@ -1,6 +1,15 @@
+//package
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+
+//utilities
+
+//components
+
+//style
+
 export class SetupAccount extends Component {
+
   constructor(props) {
     super(props);
     const { user } = this.props.auth0;
@@ -10,29 +19,19 @@ export class SetupAccount extends Component {
       userEmail: user.email,
       movie: false,
       news: false,
-
     };
+
   }
+
   setupAccount = (e) => {
     e.preventDefault();
-
     console.log(this.state);
   }
-  // updateUserPicture = (e) => {
-  //   this.setState({ userPicture: e.target.value });
-  // }
-  // updateUserName = (e) => {
-  //   this.setState({ userName: e.target.value });
-  // }
-  // updateUserEmail = (e) => {
-  //   this.setState({ userEmail: e.target.value });
-  // }
-  updateMovie = (e) => {
-    this.setState({ movie: e.target.checked });
-  }
-  updateNews = (e) => {
-    this.setState({ news: e.target.checked });
-  }
+
+  updateMovie = (e) => this.setState({ movie: e.target.checked });
+
+  updateNews = (e) => this.setState({ news: e.target.checked });
+
   render() {
     const { user } = this.props.auth0;
     return (

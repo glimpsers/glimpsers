@@ -1,7 +1,13 @@
+//package
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+//utilities
 import LogoutButton from '../../utilities/LogoutButton/LogoutButton';
+
+//components
+
+//style
 
 export class DropdownItem extends Component {
   render() {

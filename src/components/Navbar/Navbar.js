@@ -1,6 +1,13 @@
+//package
 import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
+
+//utilities
+
+//components
 import NavItem from './NavItem';
+
+//style
 import CaretIcon from '../../assets/icons/caret.svg';
 import LogoPng from '../../assets/img/glimpsers.png';
 
