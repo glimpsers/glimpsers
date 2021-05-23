@@ -18,7 +18,6 @@ import Jaradat from '../../assets/profile/jaradat.jpg';
 import Rula from '../../assets/profile/rula.jpg';
 import Tamimi from '../../assets/profile/tamimi.jpg';
 
-
 export class AboutUsPage extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +31,10 @@ export class AboutUsPage extends Component {
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-
+    this.getNewsServive = this.getNewsServive.bind(this);
+    this.getMovieServive = this.getMovieServive.bind(this);
+    this.getBooksServive = this.getBooksServive.bind(this);
+    this.getArtServive = this.getArtServive.bind(this);
   }
 
   componentDidMount() {
@@ -92,7 +94,6 @@ export class AboutUsPage extends Component {
     this.handleOpenModal();
   }
 
-
   render() {
     return (
       <>
@@ -126,12 +127,12 @@ export class AboutUsPage extends Component {
             </ReactModal>
             <hr />
             <h1>OUR TEAM</h1>
-            <img src={Abukhurma} alt='Abukhurma'/>
-            <img src={Abumatter} alt='Abumatter'/>
-            <img src={Ameen} alt='Ameen'/>
-            <img src={Jaradat} alt='Jaradat'/>
-            <img src={Rula} alt='Rula'/>
-            <img src={Tamimi} alt='Tamimi'/>
+            <img src={Abukhurma} alt='Abukhurma' />
+            <img src={Abumatter} alt='Abumatter' />
+            <img src={Ameen} alt='Ameen' />
+            <img src={Jaradat} alt='Jaradat' />
+            <img src={Rula} alt='Rula' />
+            <img src={Tamimi} alt='Tamimi' />
           </>
         )
         }
