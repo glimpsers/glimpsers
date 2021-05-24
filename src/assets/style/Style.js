@@ -322,28 +322,30 @@ a {
 }
 
 .profileDiv{
- margin: 0 auto;
- display:grid;
- place-items: center;
+  margin: 0 auto;
+  display:grid;
+  place-items: center;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   padding-bottom: 56px;
-    background: radial-gradient(#447FAD, #000000ad);
-  
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 56px;
-    margin-bottom: 56px;
+  background: linear-gradient(#447fad, #0c161deb);
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 56px;
+  margin-bottom: 56px;
 
-   
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+    margin: 0;
+  }
 
 }
 .intrestbtn{
   
   margin-right: 0px;
   
-:hover{
-  background-color: #2D5573;
-}
+  :hover{
+    background-color: #2D5573;
+  }
 }
 
 .Modal {
@@ -361,7 +363,20 @@ a {
   width: 60%;
   margin: 0 auto;
   border: 0;
+  top: calc(20px + var(--nav-size));
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+  .navbar{
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: calc( var(--nav-size));
+  }
 }
 
 .Overlay {
@@ -385,10 +400,14 @@ a {
 }
 
 .newUesrAccimg{
-  min-width: 80%;
+  min-width: 40%;
   border-radius: 50%;
   border-style: solid;
-  border-color: #242526;
+  border-color: #161A1D;
+
+  @media only screen and (max-width: 600px) {
+    width: 60%;
+  }
 }
 
 .modalForm form{
@@ -432,10 +451,341 @@ a {
 }
 .profileName{
   color: #f9f9f9;
-  
   margin-bottom: 0;
+}
+
+.boxCards{
+  text-align: center;
+  margin: 1rem;
+
+  h2{
+    font-size: 2rem;
+  }
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  width: 350px;
+  border-radius: 10px;
+  margin: 1rem;
+  min-height: 300px;
+
+  img{
+    width: 100%;
+    height:  100%;
+  }
+
+  .data {
+    padding: 1rem;
+    
+  }
+}
+
+.btnCardGroup {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.btnCard{
+  text-decoration: none;
+  cursor: pointer;
+  bottom: 0;
+  border: 0;
+  font-size: 1rem;
+  border: 0;
+  width: 8.8rem;
+  height: 1.8rem;
+  background-color: #3e68ff;
+  margin: 0 auto;
+  margin-bottom: -1rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  place-items: center;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  border-radius: 8px;
+  &&:focus{
+    outline: 0;
+  }
+  :hover{
+    background-color: #2c56ea;
+  }
+}
+
+.btnFloating{
+  position: fixed;
+  right: 24px;
+  bottom: 60px;
+  transition: all 500ms ease 0s;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.floating__btn{
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    pointer-events: all;
+    border: 0;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    place-items: center;
+    background-color: #BD2E2E;
+
+    :hover{
+      background-color: transparent;
+      border: 0.1875rem #BD2E2E solid;
+    }
+
+    svg {
+      display: block;
+      border-radius: 50%;
+      width: 80%;
+      height: 80%;
+    }
+
+    :hover svg{
+      stroke: #BD2E2E;
+    }
+
+    :first-child {
+      margin-bottom: 1rem;
+    }
+  
+  }
+
+.ReactModalPortal{
+  z-index: 999;
+}
+
+.modalNewPost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: #D1DFEB;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  width: 75%;
+  height: 53%;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 999;
+
+  @media only screen and (min-width: 1200px) {
+    width: 50%;
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+    height: 60%;
+  }
+}
+
+.overlayNewPost {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.ReactModal__Body--open {
+  overflow: hidden;
+  z-index: 999;
+}
+
+.btnNewPost{
+  border: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+}
+
+.weitePost{
 
 }
+
+.weitePost textarea {
+  resize: none;
+  width: 100%;
+  height: 10rem;
+  border: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  padding: 1.2rem;
+  font-size: 1.3rem;
+  border-radius: 6px;
+
+  :focus{
+    outline: 0;
+  }
+}
+
+.NewPostProfile{
+  display: flex;
+  /* align-items: flex-end; */
+  align-items: center;
+  align-content: center;
+  margin-bottom: 2rem;
+}
+
+.NewPostProfile img{
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+
+.NewPostProfile p{
+  font-size: 1.8rem;
+  margin-left: 0.8rem;
+}
+
+.NewPostBtnG{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.NewPostBtnGPost,
+.NewPostBtnGExit{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 10rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  background-color: #2c56ea;
+  color: #F9F9F9;
+  font-size: 1.2rem;
+  cursor: pointer;
+  :hover{
+    background-color: #2D5573;
+  }
+}
+
+.NewPostBtnGExit{
+  background-color: #F9F9F9;
+  color: #161A1D;
+  width: 5rem;
+  margin-left: 0;
+  :hover{
+    background-color: #F9F9F9;
+  }
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+
+  .cardPostContainer{
+    max-width: 90%;
+    margin: 0 auto;
+
+    .cardPost{
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5em;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+      scroll-padding-top: 1rem;
+      height: 23rem;
+
+      .data{
+        padding: 1rem;
+
+        img{
+          border-radius: 50%;
+          width: 90px;
+          height: 90px;
+        }
+
+        p{
+          font-size: 1.8rem;
+          margin-left: 0.8rem;
+        }
+        .postDescription{
+          font-size: 1.2rem;
+          margin: 1rem;
+          height: 10rem;
+          overflow-y: auto;
+        }
+
+        .PostBtnG{
+          display: flex;
+          justify-content: flex-start;
+
+          .PostBtnGLike,
+          .PostBtnGComment{
+            width: 8rem;
+            margin-right: 1rem;
+            border: 0;
+            height: 2rem;
+            cursor: pointer;
+          }
+          .PostBtnGComment{
+            margin-right: 0;
+          }
+        }
+      }
+
+      width: 80vw;
+
+      @media only screen and (min-width: 1200px) {
+        width: 50vw;
+      }
+
+      @media only screen and (max-width: 700px) {
+        width: 80%;
+        margin-right: 10rem;
+        margin-left: 1rem;
+      }
+
+    }
+  }
+
+}
+
+.postContainer{
+  margin-bottom: 3rem;
+}
+
+.commentContainer{
+  border-bottom: 2px solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
+
 `;
 
 export const Title = styled.h1`
