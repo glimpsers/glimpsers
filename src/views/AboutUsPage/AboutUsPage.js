@@ -149,9 +149,9 @@ export class AboutUsPage extends Component {
       memberImage: Abumatter,
       memberMassege: 'My name is Mohammad Abu Mattar, Im a 👨‍💻 Software Engineer. I graduated in 2018 from Al-Isra university, I 🔧 build stuff for 🌐 the web.',
       gitHubLink: 'https://github.com/MKAbuMattar',
-      linkedInLink: '',
-      faceBookLink: '',
-      twiterLink: ''
+      linkedInLink: 'https://www.linkedin.com/in/mkabumattar/',
+      faceBookLink: 'https://facebook.com/MKAbuMattar',
+      twiterLink: 'https://twitter.com/mkabumattar?lang=en'
     });
     this.handleOpenModalMember();
   }
@@ -188,9 +188,9 @@ export class AboutUsPage extends Component {
       memberImage: Rula,
       memberMassege: 'Im a biomedical engineer graduate in 2020 from JUST and I am looking forward to improving my ability in programming.',
       gitHubLink: 'https://github.com/RulaAlqasem',
-      linkedInLink: '',
-      faceBookLink: '',
-      twiterLink: ''
+      linkedInLink: 'https://www.linkedin.com/in/rula-alqasem-bme/',
+      faceBookLink: 'https://web.facebook.com/rulaalqasem97/',
+      twiterLink: 'https://twitter.com/Rulamj1'
     });
     this.handleOpenModalMember();
   }
