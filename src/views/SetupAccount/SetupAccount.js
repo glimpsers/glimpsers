@@ -72,7 +72,7 @@ export class SetupAccount extends Component {
           overlayClassName="Overlay"
         >
           <div className="modalForm">
-            <Title>Hi <span>👋</span> glimpsers! <br />  Setup Your Account</Title>
+            <Title>Hi <span role="img" aria-label="waving hand">👋</span> glimpsers! <br /> Setup Your Account</Title>
             <img
               className="newUesrAccimg"
               src={user.picture}
@@ -94,7 +94,11 @@ export class SetupAccount extends Component {
               </div>
               <button
                 className="btn btnNewAcc"
-                onClick={(e) => this.setupAccount(e)} >
+                onClick={(e) => {
+                  this.setupAccount(e);
+                  this.props.checkUser();
+                  this.props.updateSetupAccount();
+                }} >
                 Setup Your Account</button>
             </form>
           </div>

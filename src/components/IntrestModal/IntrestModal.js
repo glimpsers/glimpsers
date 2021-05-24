@@ -1,8 +1,17 @@
-
-import React from 'react';
+//package
+import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 
-class IntrestModal extends React.Component {
+//utilities
+
+//components
+
+//style
+
+//view
+
+export class IntrestModal extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -13,26 +22,21 @@ class IntrestModal extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
-  }
+  handleOpenModal = () => this.setState({ showModal: true });
 
-  handleCloseModal() {
-    this.setState({ showModal: false });
-  }
+  handleCloseModal = () => this.setState({ showModal: false });
 
   render() {
     return (
-      <div>
+      <>
         <button onClick={this.handleOpenModal} className="loginbtn intrestbtn">Interests</button>
         <ReactModal
           isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
         >
           <button onClick={this.handleCloseModal} className="loginbtn">Close Interests</button>
           <h1>interest</h1>
         </ReactModal>
-      </div>
+      </>
     );
   }
 }
