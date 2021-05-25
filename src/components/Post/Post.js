@@ -20,7 +20,7 @@ export class Post extends Component {
     super(props);
     this.state = {
       showModal: false,
-      postIndex: ''
+      postIndex: '',
     };
 
     this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -31,9 +31,8 @@ export class Post extends Component {
   handleOpenModal = () => this.setState({ showModal: true });
   handleCloseModal = () => this.setState({ showModal: false });
   saveIndex = (e, index) => {
-    // console.log(typeof index);
+
     this.setState({ postIndex: index });
-    // console.log(typeof this.state.postIndex);
     this.handleOpenModal();
   }
 
@@ -48,7 +47,7 @@ export class Post extends Component {
     };
 
 
-    const deletePost = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deletepost/${index}`,{ params: query });
+    const deletePost = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deletepost/${index}`, { params: query });
 
     console.log(deletePost.data);
 

@@ -22,11 +22,8 @@ export class Comments extends Component {
     super(props);
     this.state = {
       data: this.props.comment.posts[this.props.postIndex].commentsArray,
-
-
     };
   }
-
   deleteComment = async (e, index) => {
     const { user } = this.props.auth0;
     console.log(index);
@@ -43,28 +40,47 @@ export class Comments extends Component {
 
     console.log(deleteComment.data);
 
-    await this.props.reRenderAfterNewPost(e, deleteComment.data);
+    this.props.reRenderAfterNewPost(e, deleteComment.data);
 
     this.setState({
       data: deleteComment.data.posts[this.props.postIndex].commentsArray,
-
     });
-
-
+    this.props.change();
   }
   render() {
     // console.log(this.props.comment);
     // console.log(typeof this.props.postIndex);
-
-    console.log(this.state.data);
+    console.log('this is', this.props.fromDelete);
+    // console.log(this.state.fromDelete);
     return (
       <>
         {
-          this.state.data.length === 0 ?
+          this.props.fromDelete ?
             (
               <>
-                <h1>There is  no comments!</h1>
-              </>
+                {
+                  this.state.data.map((data, index) => {
+                    return (
+                      <>
+                        {console.log(index)}
+                        <div className="commentContainer" key={index}>
+                          <div className="NewPostProfile">
+                            <img
+                              src={data.commenterImage}
+                              alt={data.nameOfCommenter}
+                              title={data.nameOfCommenter} />
+                            <p>{data.nameOfCommenter}</p>
+                          </div>
+                          {data.comment}
+                          <button className="PostBtnGComment" onClick={(e) => {
+                            this.deleteComment(e, index);
+                          }}>Delete</button>
+                        </div>
+                      </>
+                    );
+                  })
+                }
+                {console.log('delete')} </>
             ) : (
               <>
                 {
@@ -81,13 +97,15 @@ export class Comments extends Component {
                             <p>{data.nameOfCommenter}</p>
                           </div>
                           {data.comment}
-                          <button className="PostBtnGComment" onClick={(e) => this.deleteComment(e, index)}>Delete</button>
+                          <button className="PostBtnGComment" onClick={(e) => {
+                            this.deleteComment(e, index);
+                          }}>Delete</button>
                         </div>
                       </>
                     );
                   })
                 }
-
+                {console.log('comment')}
               </>
             )
         }
