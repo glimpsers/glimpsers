@@ -38,7 +38,7 @@ export class Comments extends Component {
 
     const deleteComment = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deletepost/${postIndexNum}`, { params: query });
 
-    console.log(deleteComment.data);
+    // console.log(deleteComment.data);
 
     this.props.reRenderAfterNewPost(e, deleteComment.data);
 
