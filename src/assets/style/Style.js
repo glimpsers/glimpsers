@@ -9,6 +9,8 @@ import 'normalize.css';
 //style
 import BG from '../img/bg.svg';
 
+//font-title font-family: 'Oxygen', sans-serif;
+
 export const GlobalStyle = createGlobalStyle`
 :root{
   --bg: #242526;
@@ -35,6 +37,7 @@ html {
 
 body {
   line-height: 1.3;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 ul {
@@ -134,7 +137,7 @@ a {
 
   &:not(.icon-button) {
     padding: 0.25em 0.75em;
-    min-width: 7.89rem;
+    min-width: 8rem;
     /* min-height: 1rem; */
   }
 
@@ -278,8 +281,12 @@ a {
 
 .landingPage .container {
   height: calc(100vh - 60%);
-  width: calc(100vw - 60%);
+  width: calc(100vw - 160%);
   background-color: #F9F9F9;
+
+  @media all and (max-width: 1100px){
+    width: calc(100vw - 60%);
+  }
 
   @media all and (max-width: 700px){
     p{
@@ -291,7 +298,7 @@ a {
 }
 
 .grid {
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns:  1fr;
   display: grid;
   align-items: center;
   justify-items: center;
@@ -348,7 +355,7 @@ a {
   }
 }
 
-.Modal {
+.Modal, .OurTeamModal{
   position: absolute;
   top: 40px;
   left: 40px;
@@ -365,6 +372,7 @@ a {
   border: 0;
   top: calc(20px + var(--nav-size));
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  z-index: 999;
 
   .navbar{
     display: none;
@@ -375,21 +383,46 @@ a {
     left: 0;
     bottom: 0;
     right: 0;
-    top: calc( var(--nav-size));
+    top: 0;
   }
 }
 
-.Overlay {
+.OurTeamModal{
+  width: 30%;
+
+  @media only screen and (max-width: 1000px) {
+    width: 50%;
+    height: 84%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    transform: none;
+  }
+}
+
+.Overlay, .OurTeamOverlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
 .ReactModal__Body--open {
   overflow: hidden;
+  z-index: 999;
 }
 
 .modalForm{
@@ -786,9 +819,218 @@ a {
   padding-bottom: 0.5rem;
 }
 
+.banner{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30rem;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-content: center;
+  justify-content: center;
+  /* margin-top: calc(var(--nav-size)); */
+  margin-top: 0;
+
+  @media only screen and (max-width: 700px) {
+    /* margin-top: calc(var(--nav-size) + 0.625rem); */
+  }
+
+  .bannerImgBox {
+    grid-area: 1/1/2/2;
+  }
+
+  .bannerOverlay {
+    grid-area: 1/1/2/2;
+  }
+
+  .bannerTextBox {
+    grid-area: 1/1/2/2;
+  }
+}
+
+.bannerImg {
+  /* display: grid; */
+  display: block;
+  min-width: 21.875rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bannerOverlay {
+  display: grid;
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bannerTextBox {
+  display: grid;
+  align-items: center;
+  justify-self: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.bannerTitle {
+  font-size: 4rem;
+  color: #f9f9f9;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.whiteSpace {
+  width: 100%;
+  height: 5.45rem;
+}
+
+.cardsServices, .cardsOurTeams{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cardService, .cardOurTeam{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin: 1rem;
+  position: relative;
+
+  img{
+    width: 100%;
+    height:  100%;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #2D5573;
+
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #F9F9F9;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    user-select: none;
+    cursor: pointer;
+    opacity: 1;
+    }
+  }
+
+  :hover .overlay {
+    opacity: 0.8;
+  }
+}
+
+  .cardOurTeam{
+    width: 350px;
+    height: 350px;
+  }
+
+.serviceTitle, .ourTeamTitle{
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.btnGExit{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+
+  h2{
+    margin-top: -0.50rem;
+    font-size: 2rem;
+    font-family: 'Oxygen';
+  }
+}
+
+.btnExitInfo{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  user-select: none;
+  pointer-events: all;
+  border: 0;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  background-color: #161A1D;
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  place-items: center;
+
+  :hover{
+    background-color: #BD2E2E;
+  }
+
+  svg{
+    display: block;
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.servicesModalInfo, .OurTeamModalInfo{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+
+  img{
+    width: 100%;
+  }
+  .whiteSpace {
+    height: 2.45rem;
+  }
+
+  p{
+    text-align: center;
+    font-weight: bold;
+  }
+
+}
+
+.OurTeamModalInfo{
+  .socialMedia{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    img{
+      width: 30px;
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
 `;
 
 export const Title = styled.h1`
   font-size: 2.5rem;
   text-align: center;
+  font-family: 'Oxygen', sans-serif;
 `;
