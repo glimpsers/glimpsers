@@ -1,14 +1,15 @@
 //package
 import React, { Component } from 'react';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 
 //utilities
 import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 
 //components
+import ServicesModal from '../../components/ServicesModal/ServicesModal';
+import OurTeamModal from '../../components/OurTeamModal/OurTeamModal';
 
 //style
-import { Title } from '../../assets/style/Style';
 import TestImage from '../../assets/img/testImage.jpg';
 import MoviesImage from '../../assets/img/movies.jpg';
 import Abukhurma from '../../assets/profile/abukhurma.jpg';
@@ -17,10 +18,10 @@ import Ameen from '../../assets/profile/ameen.jpg';
 import Jaradat from '../../assets/profile/jaradat.jpg';
 import Rula from '../../assets/profile/rula.jpg';
 import Tamimi from '../../assets/profile/tamimi.jpg';
-import GitHubIcon from '../../assets/icons/github.svg';
-import LinkedIn from '../../assets/icons/linked.svg';
-import Facebook from '../../assets/icons/facebook.svg';
-import Twitter from '../../assets/icons/twitter.svg';
+// import GitHubIcon from '../../assets/icons/github.svg';
+// import LinkedIn from '../../assets/icons/linked.svg';
+// import Facebook from '../../assets/icons/facebook.svg';
+// import Twitter from '../../assets/icons/twitter.svg';
 
 export class AboutUsPage extends Component {
   constructor(props) {
@@ -228,35 +229,119 @@ export class AboutUsPage extends Component {
               description={'glimpsers description About Us Page'}
             />
 
-            <Title>About Us Page</Title>
-            <img src={TestImage} alt='' />
-            <h1>SERVICES</h1>
-            <img onClick={this.getNewsServive} src={MoviesImage} alt='' />
-            <img onClick={this.getMovieServive} src={MoviesImage} alt='' />
-            <img onClick={this.getBooksServive} src={MoviesImage} alt='' />
-            <img onClick={this.getArtServive} src={MoviesImage} alt='' />
-            <hr />
-            <ReactModal
-              isOpen={this.state.showModal}
-              contentLabel="Minimal Modal Example"
-            >
-              <button onClick={this.handleCloseModal}>Close Modal</button>
-              <h1>{this.state.serviceName}</h1>
-              <img src={this.state.serviceImage} alt={this.state.serviceName} />
-              <p>{this.state.serviceDescription}</p>
-            </ReactModal>
-            <hr />
-            <h1>OUR TEAM</h1>
-            <img onClick={this.getAbukhurmaData} src={Abukhurma} alt='Abukhurma' />
-            <img onClick={this.getAbumatterData} src={Abumatter} alt='Abumatter' />
-            <img onClick={this.getAmmenData} src={Ameen} alt='Ameen' />
-            <img onClick={this.getJaradatData} src={Jaradat} alt='Jaradat' />
-            <img onClick={this.getRulaData} src={Rula} alt='Rula' />
-            <img onClick={this.getTamimiData} src={Tamimi} alt='Tamimi' />
-            <hr />
-            <ReactModal
+            <section className="banner">
+              <div className="bannerImgBox">
+                <img className="bannerImg" src={TestImage} alt="..." />
+              </div>
+              <div className="bannerOverlay"></div>
+              <div className="bannerTextBox">
+                <h1 className="bannerTitle">About Us</h1>
+              </div>
+            </section>
+
+            <div className="whiteSpace"></div>
+
+            <section className="serviceSection">
+              <h2 className="serviceTitle">Services</h2>
+              <div className="whiteSpace"></div>
+              <div className="cardsServices">
+                <div className="cardService">
+                  <img src={MoviesImage} alt='' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getNewsServive}>News</div>
+                  </div>
+                </div>
+                <div className="cardService">
+                  <img src={MoviesImage} alt='' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getMovieServive}>Movies</div>
+                  </div>
+                </div>
+                <div className="cardService">
+                  <img src={MoviesImage} alt='' />
+                  <div className="overlay">
+                    <p className="text" onClick={this.getBooksServive}>Books</p>
+                  </div>
+                </div>
+                <div className="cardService">
+                  <img src={MoviesImage} alt='' />
+                  <div className="overlay">
+                    <p className="text" onClick={this.getArtServive}>Art</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="whiteSpace"></div>
+
+            <section className="ourTeamSection">
+              <h2 className="ourTeamTitle">Our Team</h2>
+              <div className="whiteSpace"></div>
+              <div className="cardsOurTeams">
+                <div className="cardOurTeam">
+                  <img src={Abukhurma} alt='Abukhurma' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getAbukhurmaData}>Abdallah Abu Khurma</div>
+                  </div>
+                </div>
+                <div className="cardOurTeam">
+                  <img src={Abumatter} alt='Abumatter' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getAbumatterData}>Mohammad Abu Mattar</div>
+                  </div>
+                </div>
+                <div className="cardOurTeam">
+                  <img src={Ameen} alt='Ameen' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getAmmenData}>Ameen Saleh</div>
+                  </div>
+                </div>
+                <div className="cardOurTeam">
+                  <img src={Jaradat} alt='Jaradat' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getJaradatData}>Mohammad Jaradat</div>
+                  </div>
+                </div>
+                <div className="cardOurTeam">
+                  <img src={Rula} alt='Rula' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getRulaData}>Rula Al-qasem</div>
+                  </div>
+                </div>
+                <div className="cardOurTeam">
+                  <img src={Tamimi} alt='Tamimi' />
+                  <div className="overlay">
+                    <div className="text" onClick={this.getTamimiData}>Mohammad Altamimi</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="whiteSpace"></div>
+            <div className="whiteSpace"></div>
+
+            <ServicesModal
+              showModal={this.state.showModal}
+              handleCloseModal={this.handleCloseModal}
+              serviceImage={this.state.serviceImage}
+              serviceName={this.state.serviceName}
+              serviceDescription={this.state.serviceDescription}
+            />
+
+            <OurTeamModal
+              showMemberModal={this.state.showMemberModal}
+              handleCloseModalMember={this.handleCloseModalMember}
+              memberName={this.state.memberName}
+              memberImage={this.state.memberImage}
+              memberMassege={this.state.memberMassege}
+              faceBookLink={this.state.faceBookLink}
+              linkedInLink={this.state.linkedInLink}
+              gitHubLink={this.state.gitHubLink}
+              twiterLink={this.state.twiterLink}
+            />
+
+            {/* <ReactModal
               isOpen={this.state.showMemberModal}
-              contentLabel="Minimal Modal Example"
             >
               <button onClick={this.handleCloseModalMember}>Close Modal</button>
               <h1>{this.state.memberName}</h1>
@@ -268,7 +353,7 @@ export class AboutUsPage extends Component {
               {this.state.twiterLink !== '' &&
                 <img onClick={() => this.link(this.state.twiterLink)} src={Twitter} alt='Twitter' />
               }
-            </ReactModal>
+            </ReactModal> */}
           </>
         )
         }

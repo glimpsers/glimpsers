@@ -25,6 +25,7 @@ export class HomePage extends Component {
       loading: true,
       setupAccount: false,
       showModal: false,
+      userData: [],
     };
 
     this.checkUser = this.checkUser.bind(this);
@@ -37,23 +38,27 @@ export class HomePage extends Component {
   componentDidMount() {
     this.setState({
       loading: false,
+      showPost: false,
     });
-
     this.checkUser();
   }
 
   checkUser = async () => {
     const { user } = this.props.auth0;
     const newUser = await axios.get(`${process.env.REACT_APP_SERVER_URL}/data?email=${user.email}`);
-    console.log(newUser.data);
+    console.log(newUser.data[0]);
     if (newUser.data === 'not found') {
       this.setState({ setupAccount: true, });
       console.log('newUser');
     } else {
-      this.setState({ setupAccount: false });
+      console.log('else');
+      this.setState({ setupAccount: false, userData: newUser.data[0], showPost: true });
     }
   }
-
+  reRenderAfterNewPost = (e, NewData) => {
+    console.log(NewData);
+    this.setState({ userData: NewData });
+  }
   updateSetupAccount = () => this.setState({ setupAccount: false });
   handleOpenModal = () => this.setState({ showModal: true });
   handleCloseModal = () => this.setState({ showModal: false });
@@ -98,12 +103,12 @@ export class HomePage extends Component {
                       <NewPost
                         showModal={this.state.showModal}
                         handleCloseModal={this.handleCloseModal}
+                        reRenderAfterNewPost={this.reRenderAfterNewPost}
                       />
                       <Title>Writing's On The Wall</Title>
                       <div className="container">
                         <div className="cardPostContainer">
-                          <Post />
-                          <Post />
+                          {this.state.showPost && <Post userData={this.state.userData} />}
                         </div>
                       </div>
                     </>
