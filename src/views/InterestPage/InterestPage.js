@@ -30,10 +30,14 @@ export class InterestPage extends Component {
       books: false,
       movie: false,
       news: false,
+      cats: false,
+      qosts: false,
       artData: [],
       booksData: [],
       movieData: [],
       newsData: [],
+      catsData: [],
+      qostsData: [],
       error: '',
       showModal: false,
     };
@@ -161,6 +165,41 @@ export class InterestPage extends Component {
       }
     }
 
+    if (this.state.cats) {
+      try {
+        const url = `${process.env.REACT_APP_SERVER_URL}/cats`;
+        const request = await axios.get(url);
+
+        this.setState({
+          catsData: request.data,
+          loading: false,
+          error: '',
+        });
+      } catch (err) {
+        this.setState({
+          loading: false,
+          error: err
+        });
+      }
+    }
+
+    if (this.state.qosts) {
+      try {
+        const url = `${process.env.REACT_APP_SERVER_URL}/qosts`;
+        const request = await axios.get(url);
+
+        this.setState({
+          qostsData: request.data,
+          loading: false,
+          error: '',
+        });
+      } catch (err) {
+        this.setState({
+          loading: false,
+          error: err
+        });
+      }
+    }
     // console.log(this.state.artData, this.state.booksData, this.state.movieData, this.state.newsData);
 
   }
