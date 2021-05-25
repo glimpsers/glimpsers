@@ -12,6 +12,9 @@ import OurTeamModal from '../../components/OurTeamModal/OurTeamModal';
 //style
 import TestImage from '../../assets/img/testImage.jpg';
 import MoviesImage from '../../assets/img/movies.jpg';
+import AerImage from '../../assets/img/art.jpg';
+import BooksImage from '../../assets/img/books.jpg';
+import NewsImage from '../../assets/img/news.jpg';
 import Abukhurma from '../../assets/profile/abukhurma.jpg';
 import Abumatter from '../../assets/profile/abumatter.jpg';
 import Ameen from '../../assets/profile/ameen.jpg';
@@ -83,7 +86,7 @@ export class AboutUsPage extends Component {
   getNewsServive = () => {
     this.setState({
       serviceName: 'News',
-      serviceImage: MoviesImage,
+      serviceImage: NewsImage,
       serviceDescription: 'Check out the latest news around the world and catch up with all the breaking news.'
     });
     this.handleOpenModal();
@@ -101,7 +104,7 @@ export class AboutUsPage extends Component {
   getBooksServive = () => {
     this.setState({
       serviceName: 'Books',
-      serviceImage: MoviesImage,
+      serviceImage: BooksImage,
       serviceDescription: 'Discove new adventure and soar away with your imagination and land in new unfamiliar life roles.'
     });
     this.handleOpenModal();
@@ -110,7 +113,7 @@ export class AboutUsPage extends Component {
   getArtServive = () => {
     this.setState({
       serviceName: 'Art',
-      serviceImage: MoviesImage,
+      serviceImage: AerImage,
       serviceDescription: 'Indulge your senses with extraordinary taste and style of in our special collection of artwork.'
     });
     this.handleOpenModal();
@@ -246,7 +249,7 @@ export class AboutUsPage extends Component {
               <div className="whiteSpace"></div>
               <div className="cardsServices">
                 <div className="cardService">
-                  <img src={MoviesImage} alt='' />
+                  <img src={NewsImage} alt='' />
                   <div className="overlay">
                     <div className="text" onClick={this.getNewsServive}>News</div>
                   </div>
@@ -258,13 +261,13 @@ export class AboutUsPage extends Component {
                   </div>
                 </div>
                 <div className="cardService">
-                  <img src={MoviesImage} alt='' />
+                  <img src={BooksImage} alt='' />
                   <div className="overlay">
                     <p className="text" onClick={this.getBooksServive}>Books</p>
                   </div>
                 </div>
                 <div className="cardService">
-                  <img src={MoviesImage} alt='' />
+                  <img src={AerImage} alt='' />
                   <div className="overlay">
                     <p className="text" onClick={this.getArtServive}>Art</p>
                   </div>
