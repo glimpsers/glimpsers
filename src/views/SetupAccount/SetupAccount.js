@@ -48,10 +48,10 @@ export class SetupAccount extends Component {
       art: this.state.art,
     };
 
-    const newBook = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewuser`, body);
-
+    await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewuser`, body);
     this.setState({ showModal: false });
-    console.log(newBook);
+    this.props.checkUser();
+    this.props.updateSetupAccount();
   }
 
   updateMovie = (e) => this.setState({ movie: e.target.checked });
@@ -96,8 +96,8 @@ export class SetupAccount extends Component {
                 className="btn btnNewAcc"
                 onClick={(e) => {
                   this.setupAccount(e);
-                  this.props.checkUser();
-                  this.props.updateSetupAccount();
+                  // this.props.checkUser();  //  these two were commented because they re-render the set-up pop up
+                  // this.props.updateSetupAccount();
                 }} >
                 Setup Your Account</button>
             </form>

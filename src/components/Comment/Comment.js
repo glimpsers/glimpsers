@@ -1,6 +1,10 @@
 //package
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import { withAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+
+
 
 //utilities
 
@@ -8,12 +12,42 @@ import ReactModal from 'react-modal';
 import Comments from '../Comments/Comments';
 
 //style
-import Movies from '../../assets/img/movies.jpg';
+// import Movies from '../../assets/img/movies.jpg';
 
 //view
 
 export class Comment extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      commentDescription: '',
+      // showComment: true,
+      comment: this.props.allData,
+    };
+  }
+  updateCommentDescription = (e) => {
+    // console.log(e.target.value);
+    this.setState({ commentDescription: e.target.value });
+  }
+  createNewComment = async (e) => {
+    e.preventDefault();
+    const { user } = this.props.auth0;
+
+    const body = { // add date: String
+      commit: true,
+      comment: this.state.commentDescription,
+      commenterImage: user.picture,
+      nameOfCommenter: user.name,
+      postindex: this.props.postIndex,
+      email: user.email,
+    };
+    const newCommentData = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewpost`, body);
+    // console.log(newCommentData.data);
+    this.setState({ comment: newCommentData.data, commentDescription: '' });
+  }
   render() {
+    // console.log('this is postIndex', this.props.postIndex);
+    // console.log(this.props.description);
     return (
       <>
         <ReactModal
@@ -23,35 +57,33 @@ export class Comment extends Component {
         >
           <div className="NewPostProfile">
             <img
-              src={Movies}
-              alt={'...'}
-              title={'...'} />
-            <p>{'...'}</p>
+              src={this.props.imageUrl}
+              alt={this.props.name}
+              title={this.props.name} />
+            <p>{this.props.name} 111</p>
           </div>
           <div className="postContainer">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+            {this.props.description} comment
           </div>
           <div>
             <form className="weitePost">
-              <textarea placeholder="Write new glimpse..."></textarea>
+              <textarea onChange={(e) => this.updateCommentDescription(e)} placeholder="Write new glimpse..."></textarea>
               <div className="NewPostBtnG">
                 <button
                   className="NewPostBtnGExit"
                   onClick={this.props.handleCloseModal}
                 >Close</button>
                 <button
-                  className="NewPostBtnGPost"
+                  className="NewPostBtnGPost" onClick={(e) => this.createNewComment(e)}
                 >Comment</button>
               </div>
             </form>
           </div>
-          <Comments />
-          <Comments />
-          <Comments />
+          <Comments comment={this.state.comment} postIndex={this.props.postIndex} />
         </ReactModal>
       </>
     );
   }
 }
 
-export default Comment;
+export default withAuth0(Comment);
