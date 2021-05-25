@@ -23,7 +23,12 @@ export class Comment extends Component {
       commentDescription: '',
       // showComment: true,
       comment: this.props.allData,
+      fromDelete: false,
     };
+  }
+  change = () => {
+    console.log('work ?');
+    this.setState({ fromDelete: true });
   }
   updateCommentDescription = (e) => {
     // console.log(e.target.value);
@@ -43,11 +48,11 @@ export class Comment extends Component {
     };
     const newCommentData = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewpost`, body);
     // console.log(newCommentData.data);
-    this.setState({ comment: newCommentData.data, commentDescription: '' });
+    this.setState({ comment: newCommentData.data, commentDescription: '', fromDelete: false, });
   }
   render() {
     // console.log('this is postIndex', this.props.postIndex);
-    // console.log(this.props.description);
+    // console.log(this.state.comment);
     return (
       <>
         <ReactModal
@@ -60,10 +65,10 @@ export class Comment extends Component {
               src={this.props.imageUrl}
               alt={this.props.name}
               title={this.props.name} />
-            <p>{this.props.name} 111</p>
+            <p>{this.props.name}</p>
           </div>
           <div className="postContainer">
-            {this.props.description} comment
+            {this.props.description}
           </div>
           <div>
             <form className="weitePost">
@@ -79,7 +84,7 @@ export class Comment extends Component {
               </div>
             </form>
           </div>
-          <Comments comment={this.state.comment} postIndex={this.props.postIndex} />
+          <Comments comment={this.state.comment} fromDelete={this.state.fromDelete} change={this.change} reRenderAfterNewPost={this.props.reRenderAfterNewPost} postIndex={this.props.postIndex} />
         </ReactModal>
       </>
     );
