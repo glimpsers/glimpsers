@@ -108,7 +108,7 @@ export class HomePage extends Component {
                       <Title>Writing's On The Wall</Title>
                       <div className="container">
                         <div className="cardPostContainer">
-                          {this.state.showPost && <Post userData={this.state.userData} />}
+                          {this.state.showPost && <Post reRenderAfterNewPost={this.reRenderAfterNewPost} userData={this.state.userData} />}
                         </div>
                       </div>
                     </>

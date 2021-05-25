@@ -47,7 +47,7 @@ export class Comment extends Component {
   }
   render() {
     // console.log('this is postIndex', this.props.postIndex);
-    // console.log(this.props.description);
+    console.log(this.state.comment);
     return (
       <>
         <ReactModal
@@ -60,10 +60,10 @@ export class Comment extends Component {
               src={this.props.imageUrl}
               alt={this.props.name}
               title={this.props.name} />
-            <p>{this.props.name} 111</p>
+            <p>{this.props.name}</p>
           </div>
           <div className="postContainer">
-            {this.props.description} comment
+            {this.props.description}
           </div>
           <div>
             <form className="weitePost">
@@ -79,7 +79,7 @@ export class Comment extends Component {
               </div>
             </form>
           </div>
-          <Comments comment={this.state.comment} postIndex={this.props.postIndex} />
+          <Comments comment={this.state.comment} reRenderAfterNewPost={this.props.reRenderAfterNewPost} postIndex={this.props.postIndex} />
         </ReactModal>
       </>
     );
