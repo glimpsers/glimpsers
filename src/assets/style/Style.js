@@ -1149,8 +1149,9 @@ a {
   align-items: center;
 
   img{
-    width: 100%;
+    width: 50%;
   }
+  
   .whiteSpace {
     height: 2.45rem;
   }

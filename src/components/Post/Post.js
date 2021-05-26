@@ -61,22 +61,16 @@ export class Post extends Component {
 
     const deletePost = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deletepost/${index}`, { params: query });
 
-    console.log(deletePost.data);
 
     this.props.reRenderAfterNewPost(e, deletePost.data);
   }
-
-  // obj.constructor === Object
-  // Object.keys(this.props.userData.posts).length === 0
   render() {
-    console.log(this.props.userData.posts);
     return (
       <>  {
         Object.keys(this.props.userData.posts).length === 0 ?
           (<><h1>You have no posts yet</h1></>) :
           (<>
             {this.props.userData.posts.map((i, index) => {
-              console.log(this.props.userData.posts[index].description);
               return (
                 <>
                   <div className="cardPost" key={index}>

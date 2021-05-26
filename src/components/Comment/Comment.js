@@ -12,7 +12,6 @@ import axios from 'axios';
 import Comments from '../Comments/Comments';
 
 //style
-// import Movies from '../../assets/img/movies.jpg';
 
 //view
 
@@ -27,11 +26,9 @@ export class Comment extends Component {
     };
   }
   change = () => {
-    console.log('work ?');
     this.setState({ fromDelete: true });
   }
   updateCommentDescription = (e) => {
-    // console.log(e.target.value);
     this.setState({ commentDescription: e.target.value });
   }
   createNewComment = async (e) => {
@@ -47,12 +44,9 @@ export class Comment extends Component {
       email: user.email,
     };
     const newCommentData = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewpost`, body);
-    // console.log(newCommentData.data);
     this.setState({ comment: newCommentData.data, commentDescription: '', fromDelete: false, });
   }
   render() {
-    // console.log('this is postIndex', this.props.postIndex);
-    // console.log(this.state.comment);
     return (
       <>
         <ReactModal

@@ -13,7 +13,6 @@ import ReactModal from 'react-modal';
 export class IntrestModal extends Component {
 
   render() {
-    console.log(this.props.parentState.art);
     return (
       <>
         <ReactModal

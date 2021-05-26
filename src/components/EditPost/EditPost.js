@@ -20,20 +20,17 @@ export class EditPost extends Component {
     };
   }
   editPostDescription = (e) => {
-    console.log(e.target.value);
     this.setState({ newPostDescription: e.target.value });
   };
   newPostEditing = async (e, index) => {
     e.preventDefault();
     const { user } = this.props.auth0;
-    console.log(index);
     const body = {
       updatePost: true,
       email: user.email,
       description: this.state.newPostDescription
     };
     const newDataAfterEdit = await axios.put(`${process.env.REACT_APP_SERVER_URL}/updatepost/${this.props.postIndex}`, body);
-    console.log(newDataAfterEdit);
     this.props.reRenderAfterNewPost(e, newDataAfterEdit.data);
     this.props.handleCloseModalEditPost();
   }

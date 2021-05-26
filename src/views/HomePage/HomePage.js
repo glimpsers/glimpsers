@@ -46,17 +46,13 @@ export class HomePage extends Component {
   checkUser = async () => {
     const { user } = this.props.auth0;
     const newUser = await axios.get(`${process.env.REACT_APP_SERVER_URL}/data?email=${user.email}`);
-    console.log(newUser.data[0]);
     if (newUser.data === 'not found') {
       this.setState({ setupAccount: true, });
-      console.log('newUser');
     } else {
-      console.log('else');
       this.setState({ setupAccount: false, userData: newUser.data[0], showPost: true });
     }
   }
   reRenderAfterNewPost = (e, NewData) => {
-    console.log(NewData);
     this.setState({ userData: NewData });
   }
   updateSetupAccount = () => this.setState({ setupAccount: false });

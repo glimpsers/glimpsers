@@ -47,7 +47,6 @@ export class ProfilePage extends Component {
     this.handleCloseIntrestModal = this.handleCloseIntrestModal.bind(this);
   }
   reRenderAfterNewPost = (e, NewData) => {
-    console.log(NewData);
     this.setState({ userData: NewData });
   }
 
@@ -62,10 +61,8 @@ export class ProfilePage extends Component {
   checkUser = async () => {
     const { user } = this.props.auth0;
     const newUser = await axios.get(`${process.env.REACT_APP_SERVER_URL}/data?email=${user.email}`);
-    console.log(newUser.data);
     if (newUser.data === 'not found') {
       this.setState({ setupAccount: true, });
-      console.log('newUser');
     } else {
       this.setState({
         setupAccount: false,
@@ -77,7 +74,6 @@ export class ProfilePage extends Component {
         cats: newUser.data[0].interest.cats,
         food: newUser.data[0].interest.food,
       });
-      console.log('this is state', this.state);
     }
   }
 

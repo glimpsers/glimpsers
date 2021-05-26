@@ -3,18 +3,13 @@ import React, { Component } from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
-
 //utilities
 
 //components
 
 //style
-// import Movies from '../../assets/img/movies.jpg';
 
 //view
-
-
-
 
 export class Comments extends Component {
 
@@ -26,7 +21,6 @@ export class Comments extends Component {
   }
   deleteComment = async (e, index) => {
     const { user } = this.props.auth0;
-    console.log(index);
 
     const query = {
       commentFlag: '1',
@@ -38,8 +32,6 @@ export class Comments extends Component {
 
     const deleteComment = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/deletepost/${postIndexNum}`, { params: query });
 
-    // console.log(deleteComment.data);
-
     this.props.reRenderAfterNewPost(e, deleteComment.data);
 
     this.setState({
@@ -48,10 +40,6 @@ export class Comments extends Component {
     this.props.change();
   }
   render() {
-    // console.log(this.props.comment);
-    // console.log(typeof this.props.postIndex);
-    console.log('this is', this.props.fromDelete);
-    // console.log(this.state.fromDelete);
     return (
       <>
         {
@@ -62,7 +50,6 @@ export class Comments extends Component {
                   this.state.data.map((data, index) => {
                     return (
                       <>
-                        {console.log(index)}
                         <div className="commentContainer" key={index}>
                           <div className="NewPostProfile">
                             <img
@@ -92,14 +79,13 @@ export class Comments extends Component {
                     );
                   })
                 }
-                {console.log('delete')} </>
+              </>
             ) : (
               <>
                 {
                   this.props.comment.posts[this.props.postIndex].commentsArray.map((data, index) => {
                     return (
                       <>
-                        {console.log(index)}
                         <div className="commentContainer" key={index}>
                           <div className="NewPostProfile">
                             <img
@@ -128,7 +114,6 @@ export class Comments extends Component {
                     );
                   })
                 }
-                {console.log('comment')}
               </>
             )
         }
