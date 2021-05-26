@@ -25,6 +25,7 @@ export class InterestPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userData: [],
       loading: true,
       setupAccount: false,
       art: false,
@@ -47,7 +48,10 @@ export class InterestPage extends Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
-
+  reRenderAfterNewPost = (e, NewData) => {
+    console.log(NewData);
+    this.setState({ userData: NewData });
+  }
   componentDidMount() {
     this.setState({
       loading: false,
@@ -209,6 +213,7 @@ export class InterestPage extends Component {
                         </Link>
                       </div>
                       <NewPost
+                        reRenderAfterNewPost={this.reRenderAfterNewPost}
                         showModal={this.state.showModal}
                         handleCloseModal={this.handleCloseModal}
                       />

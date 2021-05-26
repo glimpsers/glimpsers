@@ -43,6 +43,10 @@ export class Post extends Component {
     this.setState({ postIndex: index });
     this.handleOpenModal();
   }
+  saveIndexEditPost = (e, index) => {
+    this.setState({ postIndex: index });
+    this.handleOpenModalEditPost();
+  }
 
 
   deletePost = async (e, index) => {
@@ -62,11 +66,13 @@ export class Post extends Component {
     this.props.reRenderAfterNewPost(e, deletePost.data);
   }
 
-
+  // obj.constructor === Object
+  // Object.keys(this.props.userData.posts).length === 0
   render() {
+    console.log(this.props.userData.posts);
     return (
       <>  {
-        this.props.userData.posts === undefined ?
+        Object.keys(this.props.userData.posts).length === 0 ?
           (<><h1>You have no posts yet</h1></>) :
           (<>
             {this.props.userData.posts.map((i, index) => {
@@ -84,8 +90,8 @@ export class Post extends Component {
                       </button>
                       <div className="dropdownOptionsContent">
                         <button
+                          onClick={(e) => this.saveIndexEditPost(e, index)}
                           className="OptionContentBtnEdit"
-                          onClick={this.handleOpenModalEditPost}
                         >
                           <div className="OptionContentBtnText">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -160,6 +166,9 @@ export class Post extends Component {
                   <EditPost
                     showModalEditPost={this.state.showModalEditPost}
                     handleCloseModalEditPost={this.handleCloseModalEditPost}
+                    description={this.props.userData.posts[Number(this.state.postIndex)].description}
+                    postIndex={this.state.postIndex}
+                    reRenderAfterNewPost={this.props.reRenderAfterNewPost}
                   />
                 </>
               );

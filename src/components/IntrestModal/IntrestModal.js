@@ -11,7 +11,9 @@ import ReactModal from 'react-modal';
 //view
 
 export class IntrestModal extends Component {
+
   render() {
+    console.log(this.props.parentState.art);
     return (
       <>
         <ReactModal
@@ -33,7 +35,15 @@ export class IntrestModal extends Component {
               <label>Edit Your Interest?</label>
               <div>
                 <label htmlFor="News" className="interestLabels">
-                  <input type="checkbox" id="News" name="News" value="News" />
+                  {this.props.parentState.news ?
+                    (<>
+                      <input type="checkbox" id="News" name="News" value="News" checked onClick={this.props.updateNews} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="News" name="News" value="News" onClick={this.props.updateNews} />
+                    </>)
+                  }
                   <div className="interestLabel">
                     <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -42,7 +52,15 @@ export class IntrestModal extends Component {
                   </div>
                 </label>
                 <label htmlFor="Movie" className="interestLabels">
-                  <input type="checkbox" id="Movie" name="Movie" value="Movie" />
+                  {this.props.parentState.movie ?
+                    (<>
+                      <input type="checkbox" id="Movie" name="Movie" value="Movie" checked onClick={this.props.updateMovie} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="Movie" name="Movie" value="Movie" onClick={this.props.updateMovie} />
+                    </>)
+                  }
                   <div className="interestLabel">
                     <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -51,7 +69,16 @@ export class IntrestModal extends Component {
                   </div>
                 </label>
                 <label htmlFor="Books" className="interestLabels">
-                  <input type="checkbox" id="Books" name="Books" value="Books" />
+                  {this.props.parentState.books ?
+                    (<>
+                      <input type="checkbox" id="Books" name="Books" value="Books" checked onClick={this.props.updateBooks} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="Books" name="Books" value="Books" onClick={this.props.updateBooks} />
+                    </>)
+                  }
+
                   <div className="interestLabel">
                     <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -60,7 +87,15 @@ export class IntrestModal extends Component {
                   </div>
                 </label>
                 <label htmlFor="Art" className="interestLabels">
-                  <input type="checkbox" id="Art" name="Art" value="Art" />
+                  {this.props.parentState.art ?
+                    (<>
+                      <input type="checkbox" id="Art" name="Art" value="Art" checked onClick={this.props.updateArt} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="Art" name="Art" value="Art" onClick={this.props.updateArt} />
+                    </>)
+                  }
                   <div className="interestLabel">
                     <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -68,13 +103,48 @@ export class IntrestModal extends Component {
                     Art
                   </div>
                 </label>
+                <label htmlFor="Cats" className="interestLabels">
+                  {this.props.parentState.cats ?
+                    (<>
+                      <input type="checkbox" id="Cats" name="Cats" value="Cats" checked onClick={this.props.updateCats} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="Cats" name="Cats" value="Cats" onClick={this.props.updateCats} />
+                    </>)
+                  }
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Cats
+                  </div>
+                </label>
+                <label htmlFor="Food" className="interestLabels">
+                  {this.props.parentState.food ?
+                    (<>
+                      <input type="checkbox" id="Food" name="Food" value="Food" checked onClick={this.props.updateFood} />
+                    </>)
+                    :
+                    (<>
+                      <input type="checkbox" id="Food" name="Food" value="Food" onClick={this.props.updateFood} />
+                    </>)
+                  }
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Food
+                  </div>
+                </label>
               </div>
               <button
                 className="btn btnNewAcc"
                 onClick={(e) => {
-                  this.setupAccount(e);
-                  // this.props.checkUser();  //  these two were commented because they re-render the set-up pop up
+                  this.props.updateIntrest(e);
+                  // this.props.checkUser(); //  these two were commented because they re-render the set-up pop up
                   // this.props.updateSetupAccount();
+                  this.props.handleCloseIntrestModal();
                 }} >
                 Update Interest</button>
             </form>

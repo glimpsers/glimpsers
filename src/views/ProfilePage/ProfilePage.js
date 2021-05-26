@@ -23,10 +23,18 @@ export class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userData: [],
+      interest: [],
       loading: true,
       setupAccount: false,
       showModal: false,
       intrestModal: false,
+      movie: '',
+      news: '',
+      books: '',
+      art: '',
+      cats: '',
+      food: '',
     };
 
     this.checkUser = this.checkUser.bind(this);
@@ -37,6 +45,10 @@ export class ProfilePage extends Component {
 
     this.handleOpenIntrestModal = this.handleOpenIntrestModal.bind(this);
     this.handleCloseIntrestModal = this.handleCloseIntrestModal.bind(this);
+  }
+  reRenderAfterNewPost = (e, NewData) => {
+    console.log(NewData);
+    this.setState({ userData: NewData });
   }
 
   componentDidMount() {
@@ -55,7 +67,17 @@ export class ProfilePage extends Component {
       this.setState({ setupAccount: true, });
       console.log('newUser');
     } else {
-      this.setState({ setupAccount: false });
+      this.setState({
+        setupAccount: false,
+        interest: newUser.data[0].interest,
+        movie: newUser.data[0].interest.movie,
+        news: newUser.data[0].interest.news,
+        books: newUser.data[0].interest.books,
+        art: newUser.data[0].interest.art,
+        cats: newUser.data[0].interest.cats,
+        food: newUser.data[0].interest.food,
+      });
+      console.log('this is state', this.state);
     }
   }
 
@@ -66,6 +88,37 @@ export class ProfilePage extends Component {
   handleOpenIntrestModal = () => this.setState({ intrestModal: true });
   handleCloseIntrestModal = () => this.setState({ intrestModal: false });
 
+  updateMovie = (e) => this.setState({ movie: e.target.checked });
+
+  updateNews = (e) => this.setState({ news: e.target.checked });
+
+  updateBooks = (e) => this.setState({ books: e.target.checked });
+
+  updateArt = (e) => this.setState({ art: e.target.checked });
+
+  updateCats = (e) => this.setState({ cats: e.target.checked });
+
+  updateFood = (e) => this.setState({ food: e.target.checked });
+
+  updateIntrest = async (e) => {
+    e.preventDefault();
+    const { user } = this.props.auth0;
+    const body = {
+      email: user.email,
+      name: user.name,
+      imageUrl: user.picture,
+      movie: this.state.movie,
+      news: this.state.news,
+      books: this.state.books,
+      art: this.state.art,
+      cats: this.state.cats,
+      food: this.state.food,
+    };
+    await axios.put(`${process.env.REACT_APP_SERVER_URL}/updateinterest`, body);
+    this.handleCloseIntrestModal();
+    this.checkUser();
+
+  }
   render() {
     const { user } = this.props.auth0;
     return (
@@ -104,6 +157,7 @@ export class ProfilePage extends Component {
                         </Link>
                       </div>
                       <NewPost
+                        reRenderAfterNewPost={this.reRenderAfterNewPost}
                         showModal={this.state.showModal}
                         handleCloseModal={this.handleCloseModal}
                       />
@@ -125,6 +179,15 @@ export class ProfilePage extends Component {
                         <IntrestModal
                           intrestModal={this.state.intrestModal}
                           handleCloseIntrestModal={this.handleCloseIntrestModal}
+                          reRenderAfterNewPost={this.reRenderAfterNewPost}
+                          updateMovie={this.updateMovie}
+                          updateNews={this.updateNews}
+                          updateBooks={this.updateBooks}
+                          updateArt={this.updateArt}
+                          updateCats={this.updateCats}
+                          updateFood={this.updateFood}
+                          parentState={this.state}
+                          updateIntrest={this.updateIntrest}
                         />
                       </div>
                     </>
