@@ -6,6 +6,7 @@ import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 import LoginButton from '../../utilities/LoginButton/LoginButton';
 
 //components
+import Footer from '../../components/Footer/Footer';
 
 //style
 import Logo from '../../assets/img/logo.png';
@@ -31,6 +32,7 @@ export class LandingPage extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </>
     );
   }

@@ -8,23 +8,20 @@ import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 //components
 import ServicesModal from '../../components/ServicesModal/ServicesModal';
 import OurTeamModal from '../../components/OurTeamModal/OurTeamModal';
+import Footer from '../../components/Footer/Footer';
 
 //style
-import TestImage from '../../assets/img/testImage.jpg';
+import Connection from '../../assets/img/connection.jpg';
 import MoviesImage from '../../assets/img/movies.jpg';
 import AerImage from '../../assets/img/art.jpg';
 import BooksImage from '../../assets/img/books.jpg';
 import NewsImage from '../../assets/img/news.jpg';
 import Abukhurma from '../../assets/profile/abukhurma.jpg';
 import Abumatter from '../../assets/profile/abumatter.jpg';
-import Ameen from '../../assets/profile/ameen.jpg';
+import Ameen from '../../assets/profile/ameen.png';
 import Jaradat from '../../assets/profile/jaradat.jpg';
-import Rula from '../../assets/profile/rula.jpg';
+import Rula from '../../assets/profile/rula.jpeg';
 import Tamimi from '../../assets/profile/tamimi.jpg';
-// import GitHubIcon from '../../assets/icons/github.svg';
-// import LinkedIn from '../../assets/icons/linked.svg';
-// import Facebook from '../../assets/icons/facebook.svg';
-// import Twitter from '../../assets/icons/twitter.svg';
 
 export class AboutUsPage extends Component {
   constructor(props) {
@@ -213,7 +210,6 @@ export class AboutUsPage extends Component {
   }
 
   link = (e) => {
-    console.log(e);
     window.open(e);
   }
 
@@ -234,7 +230,7 @@ export class AboutUsPage extends Component {
 
             <section className="banner">
               <div className="bannerImgBox">
-                <img className="bannerImg" src={TestImage} alt="..." />
+                <img className="bannerImg" src={Connection} alt="..." />
               </div>
               <div className="bannerOverlay"></div>
               <div className="bannerTextBox">
@@ -321,7 +317,6 @@ export class AboutUsPage extends Component {
             </section>
 
             <div className="whiteSpace"></div>
-            <div className="whiteSpace"></div>
 
             <ServicesModal
               showModal={this.state.showModal}
@@ -343,20 +338,8 @@ export class AboutUsPage extends Component {
               twiterLink={this.state.twiterLink}
             />
 
-            {/* <ReactModal
-              isOpen={this.state.showMemberModal}
-            >
-              <button onClick={this.handleCloseModalMember}>Close Modal</button>
-              <h1>{this.state.memberName}</h1>
-              <img src={this.state.memberImage} alt={this.state.memberImage} />
-              <p>{this.state.memberMassege}</p>
-              <img onClick={() => this.link(this.state.faceBookLink)} src={Facebook} alt='Facebook' />
-              <img onClick={() => this.link(this.state.gitHubLink)} src={GitHubIcon} alt='GitHubIcon' />
-              <img onClick={() => this.link(this.state.linkedInLink)} src={LinkedIn} alt='LinkedIn' />
-              {this.state.twiterLink !== '' &&
-                <img onClick={() => this.link(this.state.twiterLink)} src={Twitter} alt='Twitter' />
-              }
-            </ReactModal> */}
+
+            <Footer />
           </>
         )
         }

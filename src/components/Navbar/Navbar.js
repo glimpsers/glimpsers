@@ -16,7 +16,7 @@ export class Navbar extends Component {
     const { isAuthenticated } = this.props.auth0;
     return (
       <>
-        <nav className="navbar" id="top">
+        <nav className="navbar">
           <a
             className="logoLink"
             href="/">

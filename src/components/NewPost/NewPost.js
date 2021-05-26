@@ -20,7 +20,6 @@ export class NewPost extends Component {
     };
   }
   updatepostDescription = (e) => {
-    console.log(e.target.value);
     this.setState({ postDescription: e.target.value });
   }
   addNewPost = async (e) => {
@@ -33,7 +32,6 @@ export class NewPost extends Component {
       imageUrl: user.picture,
     };
     const newPost = await axios.post(`${process.env.REACT_APP_SERVER_URL}/addnewpost`, body);
-    console.log(newPost.data);
     this.props.handleCloseModal();
     this.props.reRenderAfterNewPost(e, newPost.data);
   }
