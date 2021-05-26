@@ -1,6 +1,7 @@
 //package
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
+import { withAuth0 } from '@auth0/auth0-react';
 
 //utilities
 
@@ -12,46 +13,33 @@ import ReactModal from 'react-modal';
 
 export class EditPost extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      showModal: false
-    };
-
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
-  handleOpenModal = () => this.setState({ showModal: true });
-
-  handleCloseModal = () => this.setState({ showModal: false });
-
   render() {
+    const { user } = this.props.auth0;
     return (
       <>
         <ReactModal
-          isOpen={this.props.showModal}
+          isOpen={this.props.showModalEditPost}
           className="modalNewPost"
           overlayClassName="overlayNewPost"
         >
           <div className="NewPostProfile">
             <img
-              src={'user.picture'}
-              alt={'user.name'}
-              title={'user.name'} />
-            <p>{'user.name'}</p>
+              src={user.picture}
+              alt={user.name}
+              title={user.name} />
+            <p>{user.name}</p>
           </div>
           <div>
             <form className="weitePost">
-              <textarea placeholder="Write new glimpse..."></textarea>
+              <textarea onChange={(e) => this.updatepostDescription(e)} placeholder="Write new glimpse..."></textarea>
               <div className="NewPostBtnG">
                 <button
                   className="NewPostBtnGExit"
-                  onClick={this.props.handleCloseModal}
-                >Close 123132132</button>
+                  onClick={this.props.handleCloseModalEditPost}
+                >Close</button>
                 <button
-                  className="NewPostBtnGPost" onClick={this.props.handleOpenModal}
-                >Post 111111</button>
+                  className="NewPostBtnGPost" onClick={(e) => this.addNewPost(e)}
+                >Edit</button>
               </div>
             </form>
           </div>
@@ -61,4 +49,4 @@ export class EditPost extends Component {
   }
 }
 
-export default EditPost;
+export default withAuth0(EditPost);

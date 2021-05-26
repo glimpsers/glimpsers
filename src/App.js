@@ -19,9 +19,9 @@ import ErrorPage from './views/ErrorPage/ErrorPage';
 import AboutUsPage from './views/AboutUsPage/AboutUsPage';
 
 export class App extends Component {
+
   render() {
-    const { isAuthenticated, user } = this.props.auth0;
-    console.log(user);
+    const { isAuthenticated } = this.props.auth0;
     return (
       <>
         <Router>
@@ -30,6 +30,7 @@ export class App extends Component {
               title={'glimpsers'}
               description={'glimpsers description'}
             />
+            <div id="top"></div>
             <Navbar />
             <Switch>
               <Route exact path="/" component={isAuthenticated ? HomePage : LandingPage} />

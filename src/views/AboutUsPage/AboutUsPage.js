@@ -8,6 +8,7 @@ import MeatDecorator from '../../utilities/MeatDecorator/MeatDecorator';
 //components
 import ServicesModal from '../../components/ServicesModal/ServicesModal';
 import OurTeamModal from '../../components/OurTeamModal/OurTeamModal';
+import Footer from '../../components/Footer/Footer';
 
 //style
 import TestImage from '../../assets/img/testImage.jpg';
@@ -321,7 +322,6 @@ export class AboutUsPage extends Component {
             </section>
 
             <div className="whiteSpace"></div>
-            <div className="whiteSpace"></div>
 
             <ServicesModal
               showModal={this.state.showModal}
@@ -343,20 +343,8 @@ export class AboutUsPage extends Component {
               twiterLink={this.state.twiterLink}
             />
 
-            {/* <ReactModal
-              isOpen={this.state.showMemberModal}
-            >
-              <button onClick={this.handleCloseModalMember}>Close Modal</button>
-              <h1>{this.state.memberName}</h1>
-              <img src={this.state.memberImage} alt={this.state.memberImage} />
-              <p>{this.state.memberMassege}</p>
-              <img onClick={() => this.link(this.state.faceBookLink)} src={Facebook} alt='Facebook' />
-              <img onClick={() => this.link(this.state.gitHubLink)} src={GitHubIcon} alt='GitHubIcon' />
-              <img onClick={() => this.link(this.state.linkedInLink)} src={LinkedIn} alt='LinkedIn' />
-              {this.state.twiterLink !== '' &&
-                <img onClick={() => this.link(this.state.twiterLink)} src={Twitter} alt='Twitter' />
-              }
-            </ReactModal> */}
+
+            <Footer />
           </>
         )
         }

@@ -64,6 +64,7 @@ a {
   box-shadow: rgb(0 0 0 / 75%) 0px 14px 14px -14px;
   top:0;
   z-index: 99;
+  user-select: none;
 }
 
 .navbar .logoLink {
@@ -269,7 +270,7 @@ a {
       rgba(0, 0, 0, 0.45)
     ), url(${BG});
   width: 100vw;
-  height: calc(100vh - var(--nav-size));
+  height: calc(89vh - var(--nav-size));
   background-size:cover;
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -456,10 +457,34 @@ a {
 }
 
 .modalForm form input{
+  display: none;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
 }
+
+.interestLabel{
+  display: inline-flex;
+  align-content: center;
+  align-items: center;
+  margin-right: 0.25rem;
+  cursor: pointer;
+  user-select: none;
+  .myInterest{
+    margin-right: 0.25rem;
+  }
+}
+
+.interestLabels{
+  :hover .myInterest{
+    fill: #BD2E2E;
+  }
+}
+
+.modalForm form label input[type="checkbox"]:checked + .interestLabel .myInterest {
+  fill: #d03333;
+}
+
 
 .btn {
   border: 0;
@@ -501,23 +526,22 @@ a {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
 }
 
 .card{
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   width: 350px;
   border-radius: 10px;
   margin: 1rem;
-  min-height: 300px;
 
   img{
-    width: 100%;
-    height:  100%;
+    max-width: 100%;
   }
 
   .data {
     padding: 1rem;
-    
   }
 }
 
@@ -581,22 +605,22 @@ a {
     align-content: center;
     justify-content: center;
     place-items: center;
-    background-color: #BD2E2E;
+    background-color: #447FAD;
 
     :hover{
       background-color: transparent;
-      border: 0.1875rem #BD2E2E solid;
+      border: 0.1875rem #2D5573 solid;
     }
 
     svg {
       display: block;
       border-radius: 50%;
-      width: 80%;
-      height: 80%;
+      /* width: 100%;
+      height: 100%; */
     }
 
     :hover svg{
-      stroke: #BD2E2E;
+      stroke: #2D5573;
     }
 
     :first-child {
@@ -615,7 +639,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 0;
-  background: #D1DFEB;
+  background: #f9f9f9;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 4px;
@@ -688,13 +712,14 @@ a {
 
 .NewPostProfile img{
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
 }
 
 .NewPostProfile p{
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   margin-left: 0.8rem;
+  margin-top: -0.8rem;
 }
 
 .NewPostBtnG{
@@ -731,6 +756,15 @@ a {
 }
 
 
+.PostBtnGText{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  svg{
+    margin-right: 0.50rem;
+  }
+}
 
 .container {
   display: flex;
@@ -752,6 +786,96 @@ a {
       box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
       scroll-padding-top: 1rem;
       height: 23rem;
+      position: relative;
+
+    .dropdownOptions{
+      position: absolute;
+      right: 0;
+      margin-right: 0.25rem;
+      margin-top: 0.25rem;
+
+        .optionsBtn{
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+
+        svg{
+          stroke: #161A1D;
+        }
+      }
+
+      .dropdownOptionsContent{
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        right: 29px;
+        top: 2px;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+
+        .OptionContentBtnDelete, .OptionContentBtnEdit {
+          color: black;
+          padding: 12px 16px;
+          display: block;
+          border: 0;
+          cursor: pointer;
+          background-color: transparent;
+
+          ::focus{
+            outline: 0;
+          }
+        }
+
+        ::before{
+          content: "";
+          display: block;
+          width: 0; 
+          height: 0; 
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-left: 12px solid #f9f9f9;
+          position: absolute;
+          top: -2px;
+          right: -12px;
+        }
+
+        .OptionContentBtnText{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          svg{
+            margin-right: 0.25rem;
+          }
+        }
+
+        .OptionContentBtnDelete{
+          :hover{
+            .OptionContentBtnText svg{
+              fill: #d03333;
+            }
+          }
+        }
+
+        .OptionContentBtnEdit{
+          :hover{
+            .OptionContentBtnText svg{
+              fill: #2c56ea;
+            }
+          }
+        }
+      }
+
+      :hover .dropdownOptionsContent {
+        display: flex;
+      }
+    }
+      
 
       .data{
         padding: 1rem;
@@ -813,10 +937,37 @@ a {
 }
 
 .commentContainer{
-  border-bottom: 2px solid;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+  box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.deleteCommentBox{
+  position: relative;
+
+  .deleteCommentBtn{
+    position: absolute;
+    right: 15px;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+    bottom: 30px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    .deleteCommentIcon{
+      display: flex;
+      align-items: center;
+      align-content: center;
+    }
+
+    :hover .deleteCommentIcon svg{
+      stroke: #BD2E2E;
+    }
+  }
 }
 
 .banner{
@@ -1023,6 +1174,63 @@ a {
       width: 30px;
       margin: 0.5rem;
       cursor: pointer;
+    }
+  }
+}
+
+.settingBtn{
+  font-size: 1.5rem;
+  border: 0;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #447FAD;
+  color: #f9f9f9;
+
+  .settingBtnText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    svg{
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.footer{
+  width: 100%;
+  background: #2D5573;
+  --footer-height: 80px;
+  height: var(--footer-height);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: #f9f9f9;
+  font-size: 1.2rem;
+
+  .linkfooter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+
+    a{
+      color: #f9f9f9;
+      border-bottom: #f9f9f9 1px solid;
     }
   }
 }

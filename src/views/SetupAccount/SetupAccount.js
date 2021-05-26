@@ -83,14 +83,42 @@ export class SetupAccount extends Component {
               <label>Email: {user.email} </label>
               <label>Please Select Your Interest?</label>
               <div>
-                <input type="checkbox" id="News" name="News" value="News" onClick={(e) => this.updateNews(e)} />
-                <label htmlFor="News">News</label>
-                <input type="checkbox" id="Movie" name="Movie" value="Movie" onClick={(e) => this.updateMovie(e)} />
-                <label htmlFor="Movie">Movie</label>
-                <input type="checkbox" id="Books" name="Books" value="Books" onClick={(e) => this.updateBooks(e)} />
-                <label htmlFor="Books">Books</label>
-                <input type="checkbox" id="Art" name="Art" value="Art" onClick={(e) => this.updateArt(e)} />
-                <label htmlFor="Art">Art</label>
+                <label htmlFor="News" className="interestLabels">
+                  <input type="checkbox" id="News" name="News" value="News" onClick={(e) => this.updateNews(e)} />
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                  News
+                  </div>
+                </label>
+                <label htmlFor="Movie" className="interestLabels">
+                  <input type="checkbox" id="Movie" name="Movie" value="Movie" onClick={(e) => this.updateMovie(e)} />
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Movie
+                  </div>
+                </label>
+                <label htmlFor="Books" className="interestLabels">
+                  <input type="checkbox" id="Books" name="Books" value="Books" onClick={(e) => this.updateBooks(e)} />
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Books
+                  </div>
+                </label>
+                <label htmlFor="Art" className="interestLabels">
+                  <input type="checkbox" id="Art" name="Art" value="Art" onClick={(e) => this.updateArt(e)} />
+                  <div className="interestLabel">
+                    <svg class="myInterest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    Art
+                  </div>
+                </label>
               </div>
               <button
                 className="btn btnNewAcc"

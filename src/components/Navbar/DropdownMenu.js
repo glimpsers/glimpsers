@@ -27,7 +27,7 @@ export class DropdownMenu extends Component {
           />
 
           <DropdownItem
-            text={'Feeds'}
+            text={'Home'}
             leftIcon={Feeds}
             link={'/'}
           />

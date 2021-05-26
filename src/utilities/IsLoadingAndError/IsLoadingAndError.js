@@ -5,13 +5,16 @@ import { withAuth0 } from '@auth0/auth0-react';
 //utilities
 
 //components
+import Loader from '../../components/Loader/Loader';
 
 //style
 class IsLoadingAndError extends React.Component {
   render() {
     return (
       this.props.auth0.isLoading ?
-        <div> Loading...</div>
+        <>
+          <Loader />
+        </>
         :
         this.props.auth0.error ?
           <div>Oops... {this.props.auth0.error.message}</div>
